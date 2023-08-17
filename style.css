@@ -4,6 +4,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+:root {
+}
 body {
   display: inline-flex;
   padding: 7rem 0rem 11.3rem 38rem;
