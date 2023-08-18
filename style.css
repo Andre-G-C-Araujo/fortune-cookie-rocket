@@ -7,6 +7,7 @@
 
 :root {
   --bg-closemode-: linear-gradient(45deg, #190361 0%, #b0f 100%);
+  --shakeAnimation-: Shake 150ms infinite;
 }
 
 body {
@@ -23,7 +24,7 @@ main {
   margin-top: 7rem;
 
   width: 42rem;
-  height: 38rem;
+
   padding: 4.8rem 6.4rem 6.4rem 6.4rem;
 
   box-shadow: 0 2rem 5rem 0 rgba(0, 0, 0, 0.8);
@@ -38,7 +39,6 @@ main {
   > h1,
   h3 {
     text-align: center;
-    font-size: 1.4rem;
 
     margin-top: 1rem;
     font-family: montserrat, sans-serif;
@@ -49,18 +49,78 @@ main {
   }
 
   > h3 {
+    background: rgba(178, 173, 173, 0.656);
+    box-shadow: 0rem 0.2rem 0.2rem 0.2rem black;
+
     margin-bottom: 2rem;
+
+    color: rgb(79, 69, 69);
+
+    height: fit-content;
+
+    text-shadow: 1px 0.1rem 3rem black;
+    font-size: 1.2rem;
   }
 }
 
 .imgBox {
-  padding: 1.5rem 10rem 3rem 6rem;
+  text-align: center;
 
-  > img {
+  position: relative;
+
+  padding: 0;
+
+  transition: padding 2s;
+  border: red solid 1px;
+
+  /*Fazer com que o tamanho do imgBox diminua, e quando estiver no hover, fazer ele descer.
+  tem que ser em onclick, abaixa o biscoito, abre, sai a mensagem (no js deve ter um setTimeout)*/
+  /* > img {
+    background: url;
     width: 15rem;
     height: 15rem;
+    position: relative;
   }
+  > img:hover {
+    animation: var(--shakeAnimation-);
+    cursor: pointer;
+  } */
+
+  > .imgTest {
+    background: url(./assets/Ebene\ 4.svg) no-repeat center;
+
+    height: 15rem;
+    width: 16rem;
+    border: red solid 1px;
+
+    margin: auto;
+  }
+}
+.imgBox:hover {
+  border: red solid 1px;
+  padding: 12rem 0 0 0;
 }
 
 .openMode {
+  --shakeAnimation-: MoveDown 5000ms ease;
+}
+
+@keyframes Shake {
+  from {
+    width: 14rem;
+    rotate: 0deg;
+  }
+  to {
+    width: 15rem;
+    rotate: 5deg;
+  }
+}
+
+@keyframes MoveDown {
+  from {
+    top: 0;
+  }
+  to {
+    top: 150px;
+  }
 }
