@@ -13,7 +13,7 @@
 
   --bgCookie-: url(./assets/Ebene\ 4.svg);
   --imgHoverAni-: Shake 300ms infinite;
-  --imgPaddingAni-: 12rem 0 0 0;
+  --imgPaddingAni-: 9.5rem 0 0 0;
 
   --imgHeight-: 15rem;
   --imgWidth-: 16rem;
@@ -56,7 +56,6 @@ main {
   > h1,
   h3 {
     text-align: center;
-
     font-family: montserrat, sans-serif;
   }
   > h1 {
@@ -73,10 +72,12 @@ main {
     color: rgb(79, 69, 69);
 
     height: fit-content;
+
     margin: auto;
 
     text-shadow: 1px 0.1rem 3rem black;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    font-family: Dancing Script, sans-serif;
 
     animation: var(--AniShowText-);
   }
@@ -94,8 +95,6 @@ main {
     position: relative;
     top: var(--SpaceTopCookie-);
     left: var(--SpaceLeftCookie-);
-    /* top: var(--SpaceTopCookie-); */
-
     height: var(--imgHeight-);
     width: var(--imgWidth-);
 
@@ -103,12 +102,32 @@ main {
   }
   > .imgTest:hover {
     animation: var(--imgHoverAni-);
+    cursor: pointer;
   }
 }
 .imgBox:hover {
   padding: var(--imgPaddingAni-);
-  /*precisa desabilitar o padding*/
 }
+
+.btnTryAgain {
+  display: none;
+  position: relative;
+
+  background: #ff9500;
+
+  top: 6.5rem;
+  left: 11.5rem;
+
+  width: 7rem;
+
+  padding: 1rem;
+
+  border-radius: 4px;
+}
+.btnTryAgain:hover {
+  cursor: pointer;
+}
+
 /*adicionar uma classe Disable para retirar o hover*/
 .openMode {
   --bgCookie-: url(./assets/opened-cookie.svg);
@@ -123,12 +142,16 @@ main {
   --imgPaddingfixed: 12rem;
   --imgMargin-: 12rem 0 0 0;
 
-  --AniShowText-: ShowText 3s normal;
+  --AniShowText-: ShowText 2500ms normal;
 
   --transitionTest-: none;
   --positionH3-: relative;
 
   /*talvez precise mudar pra peddin... pois se adicionar um elemento vai alterar*/
+}
+
+.showBtn {
+  display: block;
 }
 
 @keyframes Shake {
@@ -148,16 +171,20 @@ main {
     height: 1rem;
     width: 1rem;
   }
-  25% {
+  10% {
+    height: 2rem;
+    width: 2rem;
+  }
+  20% {
     height: 3rem;
-    width: 3rem;
+    width: 4rem;
   }
   50% {
-    height: 3rem;
-    width: 5rem;
+    height: 4rem;
+    width: 6rem;
   }
   75% {
-    height: 3rem;
+    height: 5rem;
     width: 10rem;
   }
   100% {
