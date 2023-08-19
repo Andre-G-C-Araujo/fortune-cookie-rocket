@@ -8,6 +8,23 @@
 :root {
   --bg-closemode-: linear-gradient(45deg, #190361 0%, #b0f 100%);
   --shakeAnimation-: Shake 150ms infinite;
+
+  /*cooking settings*/
+
+  --bgCookie-: url(./assets/Ebene\ 4.svg);
+  --imgHoverAni-: Shake 300ms infinite;
+  --imgPaddingAni-: 12rem 0 0 0;
+
+  --imgHeight-: 15rem;
+  --imgWidth-: 16rem;
+  --imgMargin-: auto;
+  --imgPaddingfixed-: 0;
+  --transitionTest-: padding 2s;
+  --SpaceTopCookie-: 0;
+  --SpaceLeftCookie-: -1rem;
+  --AniShowText-: none;
+
+  --positionH3-: none;
 }
 
 body {
@@ -40,87 +57,111 @@ main {
   h3 {
     text-align: center;
 
-    margin-top: 1rem;
     font-family: montserrat, sans-serif;
   }
   > h1 {
     font-size: 2.4rem;
     color: #34455b;
+    margin-bottom: 2rem;
   }
 
   > h3 {
     background: rgba(178, 173, 173, 0.656);
     box-shadow: 0rem 0.2rem 0.2rem 0.2rem black;
-
-    margin-bottom: 2rem;
+    position: var(--positionH3-);
 
     color: rgb(79, 69, 69);
 
     height: fit-content;
+    margin: auto;
 
     text-shadow: 1px 0.1rem 3rem black;
     font-size: 1.2rem;
+
+    animation: var(--AniShowText-);
   }
 }
 
 .imgBox {
-  text-align: center;
+  transition: var(--transitionTest-);
 
-  position: relative;
+  padding: var(--imgPaddingfixed-) 0 0 0;
 
-  padding: 0;
-
-  transition: padding 2s;
-  border: red solid 1px;
-
-  /*Fazer com que o tamanho do imgBox diminua, e quando estiver no hover, fazer ele descer.
-  tem que ser em onclick, abaixa o biscoito, abre, sai a mensagem (no js deve ter um setTimeout)*/
-  /* > img {
-    background: url;
-    width: 15rem;
-    height: 15rem;
-    position: relative;
-  }
-  > img:hover {
-    animation: var(--shakeAnimation-);
-    cursor: pointer;
-  } */
+  height: 23.5rem;
 
   > .imgTest {
-    background: url(./assets/Ebene\ 4.svg) no-repeat center;
+    background: var(--bgCookie-) no-repeat bottom;
+    position: relative;
+    top: var(--SpaceTopCookie-);
+    left: var(--SpaceLeftCookie-);
+    /* top: var(--SpaceTopCookie-); */
 
-    height: 15rem;
-    width: 16rem;
-    border: red solid 1px;
+    height: var(--imgHeight-);
+    width: var(--imgWidth-);
 
     margin: auto;
   }
+  > .imgTest:hover {
+    animation: var(--imgHoverAni-);
+  }
 }
 .imgBox:hover {
-  border: red solid 1px;
-  padding: 12rem 0 0 0;
+  padding: var(--imgPaddingAni-);
+  /*precisa desabilitar o padding*/
 }
-
+/*adicionar uma classe Disable para retirar o hover*/
 .openMode {
-  --shakeAnimation-: MoveDown 5000ms ease;
+  --bgCookie-: url(./assets/opened-cookie.svg);
+  --imgHoverAni-: none;
+  --imgPaddingAni-: none;
+
+  --imgHeight-: 11rem;
+  --imgWidth-: 19rem;
+  --SpaceTopCookie-: 6.5rem;
+  --SpaceLeftCookie-: 1rem;
+
+  --imgPaddingfixed: 12rem;
+  --imgMargin-: 12rem 0 0 0;
+
+  --AniShowText-: ShowText 3s normal;
+
+  --transitionTest-: none;
+  --positionH3-: relative;
+
+  /*talvez precise mudar pra peddin... pois se adicionar um elemento vai alterar*/
 }
 
 @keyframes Shake {
   from {
-    width: 14rem;
+    width: var(--imgWidth-);
     rotate: 0deg;
   }
   to {
-    width: 15rem;
-    rotate: 5deg;
+    width: var(--imgWidth-);
+    rotate: 7deg;
   }
 }
 
-@keyframes MoveDown {
-  from {
-    top: 0;
+@keyframes ShowText {
+  0% {
+    top: 175px;
+    height: 1rem;
+    width: 1rem;
   }
-  to {
-    top: 150px;
+  25% {
+    height: 3rem;
+    width: 3rem;
+  }
+  50% {
+    height: 3rem;
+    width: 5rem;
+  }
+  75% {
+    height: 3rem;
+    width: 10rem;
+  }
+  100% {
+    top: 0;
+    width: initial;
   }
 }
